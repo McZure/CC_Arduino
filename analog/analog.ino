@@ -28,8 +28,11 @@
 */
 
 int sensorPin = A0;   // select the input pin for the potentiometer
+int sensorPin2 = A2;
 int ledPin = 13;      // select the pin for the LED
+int ledPin2 = 12;  
 int sensorValue = 0;  // variable to store the value coming from the sensor
+int sensorValue2 = 0; 
 int photocell = A1;
 int photoValue = 0;
 
@@ -38,6 +41,9 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   pinMode(10, OUTPUT);
   Serial.begin(9600);
+  pinMode(ledPin2, OUTPUT);
+  pinMode(12, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -45,6 +51,9 @@ void loop() {
   sensorValue = analogRead(sensorPin);
   Serial.print("Potentiometer: ");
   Serial.println(sensorValue);
+  sensorValue2 = analogRead(sensorPin2);
+  Serial.print("Potentiometer2: ");
+  Serial.println(sensorValue2);
   photoValue = analogRead(photocell);
   Serial.print("Photocell:     ");
   Serial.println(photoValue);
@@ -56,6 +65,7 @@ void loop() {
   // // turn the ledPin off:
   // digitalWrite(ledPin, LOW);
   analogWrite(10,sensorValue/4);
+  analogWrite(12,sensorValue2/4);
   // stop the program for for <sensorValue> milliseconds:
   // delay(sensorValue);
 }
