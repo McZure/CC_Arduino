@@ -27,45 +27,32 @@
   https://www.arduino.cc/en/Tutorial/BuiltInExamples/AnalogInput
 */
 
-int sensorPin = A0;   // select the input pin for the potentiometer
-int sensorPin2 = A2;
-int ledPin = 13;      // select the pin for the LED
-int ledPin2 = 12;  
-int sensorValue = 0;  // variable to store the value coming from the sensor
-int sensorValue2 = 0; 
-int photocell = A1;
-int photoValue = 0;
+int m1 = A0;   // select the input pin for the potentiometer
+int m2 = A1;
+int m3 = A2;
+int v1 = 0;  // variable to store the value coming from the sensor
+int v2 = 0; 
+int v3 = 0;
 
 void setup() {
   // declare the ledPin as an OUTPUT:
-  pinMode(ledPin, OUTPUT);
-  pinMode(10, OUTPUT);
+  // pinMode(ledPin, OUTPUT);
+  // pinMode(10, OUTPUT);
   Serial.begin(9600);
-  pinMode(ledPin2, OUTPUT);
-  pinMode(12, OUTPUT);
-  Serial.begin(9600);
+  // pinMode(ledPin2, OUTPUT);
+  // pinMode(12, OUTPUT);
+  // Serial.begin(9600);
 }
 
 void loop() {
   // read the value from the sensor:
-  sensorValue = analogRead(sensorPin);
-  Serial.print("Potentiometer: ");
-  Serial.println(sensorValue);
-  sensorValue2 = analogRead(sensorPin2);
-  Serial.print("Potentiometer2: ");
-  Serial.println(sensorValue2);
-  photoValue = analogRead(photocell);
-  Serial.print("Photocell:     ");
-  Serial.println(photoValue);
-  // turn the ledPin on
-  // digitalWrite(ledPin, HIGH);
-  // analogWrite(10,sensorValue);
-  // stop the program for <sensorValue> milliseconds:
-  // delay(sensorValue);
-  // // turn the ledPin off:
-  // digitalWrite(ledPin, LOW);
-  analogWrite(10,sensorValue/4);
-  analogWrite(12,sensorValue2/4);
-  // stop the program for for <sensorValue> milliseconds:
-  // delay(sensorValue);
+  v1 = analogRead(m1);
+  Serial.print("m1: ");
+  Serial.println(v1);
+  v2 = analogRead(m2);
+  Serial.print("m2: ");
+  Serial.println(v2);
+  v3 = analogRead(m3);
+  Serial.print("m3: ");
+  Serial.println(v3);
 }
